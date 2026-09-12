@@ -1,0 +1,201 @@
+﻿Diagnose log at 2026-09-12T09:41:15Z
+
+AppPath: C:\Program Files\Git\mingw64\bin\git-credential-manager.exe
+InstallDir: C:\Program Files\Git\mingw64\bin\
+Version: 2.9.0+194ba290ce533465310d50f811684ab180536ae7
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Windows
+OSVersion: 10.0 (build 22621)
+Reading environment variables... OK
+ Variables:
+OneDriveConsumer=C:\Users\lokesh\OneDrive
+ProgramFiles(x86)=C:\Program Files (x86)
+MSYSTEM=MINGW64
+ProgramW6432=C:\Program Files
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 126 Stepping 5, GenuineIntel
+OnlineServices=Online Services
+PROCESSOR_ARCHITECTURE=AMD64
+Path=C:/Program Files/Git/mingw64/libexec/git-core;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\lokesh\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\lokesh\AppData\Local\Microsoft\WindowsApps;C:\Users\lokesh\AppData\Local\Programs\Microsoft VS Code\bin
+WSLENV=WT_SESSION::WT_PROFILE_ID
+PROCESSOR_REVISION=7e05
+TEMP=C:\Users\lokesh\AppData\Local\Temp
+USERPROFILE=C:\Users\lokesh
+LOGONSERVER=\\RAJA0729
+TERM=xterm-256color
+USERNAME=lokesh
+SystemRoot=C:\WINDOWS
+GIT_EXEC_PATH=C:/Program Files/Git/mingw64/libexec/git-core
+PLINK_PROTOCOL=ssh
+OneDrive=C:\Users\lokesh\OneDrive
+USERDOMAIN_ROAMINGPROFILE=RAJA0729
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+WT_PROFILE_ID={61c54bbd-c2c6-5271-96e7-009a87ff44bf}
+ProgramData=C:\ProgramData
+platformcode=KV
+HOMEPATH=\Users\lokesh
+WT_SESSION=390de908-7eff-42fe-9269-893bb2dab0ff
+COMPUTERNAME=RAJA0729
+ALLUSERSPROFILE=C:\ProgramData
+CommonProgramW6432=C:\Program Files\Common Files
+TMP=C:\Users\lokesh\AppData\Local\Temp
+__PSLockDownPolicy=0
+MEmu_Path=C:\Program Files (x86)
+DriverData=C:\Windows\System32\Drivers\DriverData
+HOMEDRIVE=C:
+windir=C:\WINDOWS
+GIT_TRACE2_PARENT_SID=0f33fc72-023c-43c9-9dd6-a65386ae1a06
+SystemDrive=C:
+NUMBER_OF_PROCESSORS=4
+OS=Windows_NT
+ProgramFiles=C:\Program Files
+ComSpec=C:\WINDOWS\system32\cmd.exe
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+HOME=C:\Users\lokesh
+PSModulePath=C:\Users\lokesh\Documents\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+TMPDIR=C:\Users\lokesh\AppData\Local\Temp
+APPDATA=C:\Users\lokesh\AppData\Roaming
+USERDOMAIN=RAJA0729
+PROCESSOR_LEVEL=6
+LC_CTYPE=C.UTF-8
+LOCALAPPDATA=C:\Users\lokesh\AppData\Local
+RegionCode=EMEA
+COLORTERM=truecolor
+PUBLIC=C:\Users\Public
+CommonProgramFiles=C:\Program Files\Common Files
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is 'C:\Users\lokesh\AppData\Local\Temp\'...
+Checking basic file I/O...
+Writing to temporary file 'C:\Users\lokesh\AppData\Local\Temp\c85c4a50b80a0c657185ab64'... OK
+Reading from temporary file 'C:\Users\lokesh\AppData\Local\Temp\c85c4a50b80a0c657185ab64'... OK
+Deleting temporary file 'C:\Users\lokesh\AppData\Local\Temp\c85c4a50b80a0c657185ab64'... OK
+Testing IFileSystem instance...
+UserHomePath: C:\Users\lokesh
+UserDataDirectoryPath: C:\Users\lokesh\.gcm
+GetCurrentDirectory(): C:\Users\lokesh\Downloads\Smart_Food_Forge
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: False
+Exception:
+System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---> System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---> System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   --- End of inner exception stack trace ---
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at GitCredentialManager.Diagnostics.NetworkingDiagnostic.<RunInternalAsync>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at GitCredentialManager.Diagnostics.Diagnostic.<RunAsync>d__6.MoveNext()
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com... OK
+Sending HEAD request to https://example.com...
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.55.0.windows.3'
+Locating current repository...Git repository at 'C:/Users/lokesh/Downloads/Smart_Food_Forge/.git'
+ OK
+Listing all Git configuration... OK
+Git configuration:
+file:C:/Program Files/Git/etc/gitconfig	diff.astextplain.textconv=astextplain
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.required=true
+file:C:/Program Files/Git/etc/gitconfig	http.sslbackend=schannel
+file:C:/Program Files/Git/etc/gitconfig	core.autocrlf=true
+file:C:/Program Files/Git/etc/gitconfig	core.fscache=true
+file:C:/Program Files/Git/etc/gitconfig	core.symlinks=true
+file:C:/Program Files/Git/etc/gitconfig	pull.rebase=false
+file:C:/Program Files/Git/etc/gitconfig	credential.helper=manager
+file:C:/Program Files/Git/etc/gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:C:/Program Files/Git/etc/gitconfig	init.defaultbranch=master
+file:C:/Users/lokesh/.gitconfig	user.name=John Joyel
+file:C:/Users/lokesh/.gitconfig	user.email=johnjoyelsarimella@gmail.com
+file:C:/Users/lokesh/.gitconfig	credential.helper=manager
+file:C:/Users/lokesh/.gitconfig	http.version=HTTP/1.1
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=false
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	core.ignorecase=true
+file:.git/config	remote.origin.url=https://github.com/johnjoyelsarimella-lab/smart-food-forge.git
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Gathering MSAL token cache data... OK
+CacheDirectory: C:\Users\lokesh\AppData\Local\.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: C:\Users\lokesh\AppData\Local\.IdentityService\msal.cache
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
+------------
+Diagnostic: GitHub API
+Skipped: False
+Success: False
+Exception:
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at GitHub.GitHubRestApi.<GetMetaInfoAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at GitHub.Diagnostics.GitHubApiDiagnostic.<RunInternalAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at GitCredentialManager.Diagnostics.Diagnostic.<RunAsync>d__6.MoveNext()
+Log:
+Using 'https://github.com/' as API target.
+Querying '/meta' endpoint...

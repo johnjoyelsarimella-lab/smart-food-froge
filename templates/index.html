@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Food Forge | AI Packaging Recommendation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M5 11 16 5l11 6-11 6L5 11Z"/><path d="M5 11v10l11 6 11-6V11M16 17v10"/></svg>
+        </div>
+        <div><strong>Smart Food Forge</strong><span>Intelligent Packaging Advisor</span></div>
+      </div>
+      <div class="top-actions">
+        <span class="engine-pill"><i></i><span id="engineLabel">Local AI engine</span></span>
+        <button class="icon-btn" id="resetBtn" title="Reset demo">↻</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">AGRICULTURE · FOODTECH · RURAL DEVELOPMENT</div>
+        <h1>Choose packaging that protects<br><em>food and the future.</em></h1>
+        <p>Match a food commodity to the right packaging material using shelf life, storage conditions, protection, cost and sustainability.</p>
+      </section>
+
+      <section class="workspace">
+        <form class="control-card" id="recommendForm">
+          <div class="section-head"><div><span class="step">01</span><h2>Tell us about the food</h2></div><span class="live-tag">LIVE RECOMMENDATION</span></div>
+
+          <div class="field-grid two">
+            <label class="field"><span>Food commodity</span>
+              <select id="commodity"><option>Dairy</option><option>Fruits</option><option>Meat</option><option>Grains</option><option>Bakery</option></select>
+            </label>
+            <label class="field"><span>Storage condition</span>
+              <select id="storage"><option>Refrigerated</option><option>Room</option><option>Frozen</option></select>
+            </label>
+          </div>
+
+          <div class="field-grid two lower-fields">
+            <label class="field"><span>Shelf life needed <b id="daysValue">10 days</b></span>
+              <input id="shelfLife" type="range" min="1" max="90" value="10"><div class="range-labels"><small>1 day</small><small>90 days</small></div>
+            </label>
+            <div class="field"><span>What matters most?</span>
+              <div class="priority-grid" id="priorityGrid">
+                <button type="button" data-priority="Balanced" class="active">Balanced</button>
+                <button type="button" data-priority="Eco-first">Eco-first</button>
+                <button type="button" data-priority="Budget-first">Budget-first</button>
+                <button type="button" data-priority="Max protection">Max protection</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-row">
+            <span><strong>Decision factors:</strong> barrier · temperature · moisture · cost · recyclability</span>
+            <button type="submit" class="recommend-btn" id="recommendBtn"><span>Recommend packaging</span><b>→</b></button>
+          </div>
+          <div class="error-box" id="errorBox" hidden></div>
+        </form>
+
+        <div class="quick-strip">
+          <span>Quick demo:</span>
+          <button data-preset="dairy">🥛 Dairy · 10d · Chilled</button>
+          <button data-preset="fruit">🍎 Fruit · 7d · Chilled</button>
+          <button data-preset="meat">🥩 Meat · 30d · Frozen</button>
+          <button data-preset="grain">🌾 Grain · 60d · Room</button>
+        </div>
+
+        <section class="result-card" id="resultCard" hidden>
+          <div class="result-heading">
+            <div class="result-title-group">
+              <div class="package-icon" id="packageIcon">▣</div>
+              <div><div class="result-kicker">RECOMMENDED PACKAGING</div><h2 id="materialName">HDPE bottle with foil seal</h2><p id="resultMeta">Dairy · Refrigerated · 10-day shelf life</p></div>
+            </div>
+            <div class="score-ring" id="scoreRing"><div><strong id="scoreValue">85</strong><span>/100</span></div><small>fit score</small></div>
+          </div>
+
+          <div class="recommendation-callout"><span class="spark">✦</span><p id="resultReason">This option gives a strong balance of protection, practical cost and recyclability for the selected storage and shelf-life target.</p><span class="match-badge" id="matchBadge">BEST MATCH</span></div>
+
+          <div class="metrics">
+            <div><span>EST. COST</span><strong id="costValue">₹2–3</strong><small>per unit</small></div>
+            <div><span>PROTECTION</span><strong id="protectionValue">High</strong><small id="protectionSub">temperature + barrier</small></div>
+            <div><span>FOOTPRINT</span><strong id="footprintValue">Medium</strong><small id="footprintSub">recyclable plastic</small></div>
+            <div><span>SUITABILITY</span><strong id="suitabilityValue">Excellent</strong><small>for your target</small></div>
+          </div>
+
+          <div class="explain-grid">
+            <div class="why-panel"><div class="panel-title"><span>Why this material?</span><span class="confidence">92% confidence</span></div><div id="whyList"></div></div>
+            <div class="tradeoff-panel"><div class="panel-title"><span>Decision profile</span><span>weighted</span></div><div id="bars"></div></div>
+          </div>
+
+          <div class="alternatives-head"><h3>Other options considered</h3><span id="alternativeNote">Ranked by overall fit</span></div>
+          <div class="alternatives" id="alternatives"></div>
+          <div class="judge-insight" id="judgeInsight"><div class="insight-icon">✦</div><div><strong>AI decision summary</strong><p id="judgeInsightText">The engine weighs protection, cost, sustainability and shelf-life fit for the selected scenario.</p></div></div>
+          <div class="result-footer"><span>ⓘ Scores are generated by the explainable packaging recommendation engine.</span><button id="copyBtn" class="outline-btn">Copy result</button><button id="printBtn" class="outline-btn">Print report</button></div>
+        </section>
+      </section>
+    </main>
+    <footer><span>Smart Food Forge · SIH Prototype</span><span>Decision support — not a food-safety certification</span></footer>
+  </div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
